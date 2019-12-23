@@ -10,10 +10,13 @@
 </head>
 <style>
     body {
-        background-image: url("food1.webp");
+        background-image: url("foods.jpg");
         background-repeat: no-repeat;
         background-size: cover;
         background-position: 11px 11px;
+    }
+    table{
+        margin-left: 90px;
     }
 </style>
 <body>
@@ -43,7 +46,7 @@
     <div class="row mt-5">
         <div class="col-2"></div>
         <div class="col-3">
-            <h4 id="person" class="float-right text-light"><strong>Number of person:</strong></h4 id="person">
+            <h4 id="person" class="float-right text-primary"><strong>Number of person:</strong></h4 id="person">
         </div>
         <div class="col-5" id="number">
             <div class="input-group mb-3">
@@ -61,14 +64,14 @@
     <!-- Ingredients table  and message of instruction-->
     <div class="row mt-5">
         <div class="col-5">
-            <h5 class="text-center text-light" id="ingredients">Ingredients</h5>
+            <h4 class="text-center text-light" id="ingredients">Ingredients</h4>
             <table class="table table-bordereless table-dark" id="datas">
             </table>
         </div>
         <div class="col-1"></div>
         <div class="col-5">
-            <h5 id="instruction" class="text-light">Instructions</h5>
-            <table id="structor" class="mt-4"></table>
+            <h4 id="instruction" class="text-light text-center">Instructions</h4>
+            <table id="structor" class="mt-4 "></table>
         </div>
         <div class="col-1"></div>
     </div>

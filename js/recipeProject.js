@@ -9,7 +9,25 @@ $(document).ready(function(){
     $('#recipe').on('change',function(){
         var chooseRecipe = $('#recipe').val();
         getRecipe(chooseRecipe);
-    });
+// function add number 
+ $('#add').on('click', function(){
+     var addNumber = $('#members').val();
+     var increaseNum = parseInt(addNumber) + 1;
+     if(increaseNum <= 15 ){
+     $('#members').val(increaseNum);
+     executeNumber(increaseNum);
+   }
+});
+// function minus number
+$('#minus').on('click', function(){
+      var minusNumber = $('#members').val();
+      var decreaseNum = parseInt(minusNumber) - 1;
+      if(decreaseNum >= 1){
+      $('#members').val(decreaseNum); 
+      executeNumber(decreaseNum);
+      }
+     });
+  });
 });
 // gat recipes by ajax
 var AllData = [];
@@ -27,7 +45,7 @@ function chooseRecipe(recipe){
     allData = recipe;
     var option = "";
     recipe.forEach(element => {
-        option +=`<option value= "${element.id}">${element.name}</option>`;
+    option +=`<option value= "${element.id}">${element.name}</option>`;
     });
     $('#recipe').append(option);
 }
@@ -50,9 +68,9 @@ function getRecipe(id){
 function eachRecipe(name,img){
     var data = "";
     data +=`
-     <tr>
-     <th><h3 class="text-light">${name}</h3></th>
-     <th><img src="${img}" width="150"></th>
+     <tr class="bg-dark">
+     <th><h3 class="text-light" >${name}</h3></th>
+     <th><img src="${img}" width="210"></th>
      </tr>
     `;
     $('#result').html(data);
@@ -75,7 +93,7 @@ function eachIngredients(ingredients){
      ingredients.forEach(element => {
         datas +=`
           <tr class=" text-center">
-          <td><img src="${element.iconUrl}" width="90" class="img-fluid"></td>
+          <td><img src="${element.iconUrl}" width="100" class="img-fluid"></td>
           <td>${element.quantity}</td>
           <td>${element.unit[0].toLowerCase()}</td>
           <td>${element.name}</td>
@@ -94,41 +112,24 @@ $('#instruction').hide();
 function eachInstructions(instructions){
      var split = instructions.split('<step>');
      var result = "";
-    for(let i = 1; i < split.length; i++){
+     for(let i = 1; i < split.length; i++){
         result  +=`
-      <h6 class="text text-info">Step:${i}</h6>
-      <p class="text-light">${split[i]}</p>
-    `;
-    $('#structor').html(result);
-    $('#instruction').show();
+        <div class="alert alert-success bg-dark">
+        <h6 class="text text-primary">Step:${i}</h6>
+        <p class="text-light">${split[i]}</p>
+        </div>
+       `;
+$('#structor').html(result);
+$('#instruction').show();
     }
 }
-// function add number
-var numbers; 
-$('#add').on('click', function(){
-    var addNumber = $('#members').val();
-    var increaseNum = parseInt(addNumber) + 1;
-   if(increaseNum <= 15 ){
-     $('#members').val(increaseNum);
-     executeNumber(increaseNum);
-   }
-});
-// function minus number
-$('#minus').on('click', function(){
-    var minusNumber = $('#members').val();
-    var decreaseNum = parseInt(minusNumber) - 1;
-   if(decreaseNum >= 1){
-     $('#members').val(decreaseNum); 
-    executeNumber(decreaseNum);
-   }
-});
 // function of calculate data
 var executeNumber = (newGuest) =>{
     var getQuantity= "";
     numberQuantity.ingredients.forEach(quant => {
         getQuantity +=`
         <tr class ="text-center bg-dark ">
-        <td><img src ="${quant.iconUrl}" width="90" class="img-fluid"></td>
+        <td><img src ="${quant.iconUrl}" width="100" class="img-fluid"></td>
         <td>${quant.quantity * newGuest/oldGuest}</td>
         <td>${quant.unit[0].toLowerCase()}</td>
         <td>${quant.name}</td>
