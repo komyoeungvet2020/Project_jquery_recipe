@@ -68,7 +68,7 @@ function getRecipe(id){
 function eachRecipe(name,img){
     var data = "";
     data +=`
-     <tr class="bg-dark">
+      <tr class="bg-dark">
      <th><h3 class="text-light" >${name}</h3></th>
      <th><img src="${img}" width="210"></th>
      </tr>
@@ -83,6 +83,7 @@ var getNumber = (numbers) =>{
         `;
      $('#calculate').html(result);
 }
+$('#jum').hide();
 $('#minus').hide();// Hide minus button 
 $('#add').hide();  // Hide add button
 $('#person').hide();
@@ -105,6 +106,7 @@ function eachIngredients(ingredients){
         $('#person').show();
         $('#add').show();// show add button
         $('#minus').show();// show minus button
+        $('#jum').show();
     });
 }
 $('#instruction').hide();

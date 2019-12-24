@@ -10,30 +10,40 @@
 </head>
 <style>
     body {
-        background-image: url("foods.jpg");
         background-repeat: no-repeat;
-        background-size: cover;
-        background-position: 11px 11px;
+        background-image:
+        linear-gradient(to right, rgba(146, 102, 102, 0.246), rgba(146, 112, 112, 0.73)),
+       url("food.jpg");
+          background-size: cover;
     }
     table{
         margin-left: 90px;
+    }
+    .jumbotron{
+        padding: 80px;
+        background: #1a0d03;
+    }
+    h1{
+        color: #06f971;
     }
 </style>
 <body>
     <!-- Selection -->
     <div class="contianer">
+         <div class="text-center mt-5">
+                <h1><strong>WELCOME TO KHMER FOOD 2020</strong></h1>
+         </div>
         <div class="row mt-5">
             <div class="col-4"></div>
             <div class="col-4">
                 <form action="#">
                     <select id="recipe" class="form-control">
-                        <option value="" disabled>Selection</option>
+                        <option value="Selection" disabled selected>Choose recipes</option>
                     </select>
                 </form>
             </div>
             <div class="col-4"></div>
         </div>
-    
     <!-- Get Recipes -->
         <div class="row mt-5">
             <div class="col-3"></div>
@@ -76,6 +86,13 @@
         <div class="col-1"></div>
     </div>
 </div>
+    <footer>
+        <div class="jumbotron mt-5" id="jum">
+            <h1 class="text-light text-center">Information about foods</h1>
+            <p class="text-center text-light"><strong >E-mail: </strong>khamyoeung.vet77@gmail.com</p>
+            <p class="text-center text-light"><strong>Phone: </strong>097 60 77 801</p>
+        </div>
+    </footer>
     <script src="js/jquery-3.4.1.js"></script>
     <script src="js/recipeProject.js"></script>
 </body>
